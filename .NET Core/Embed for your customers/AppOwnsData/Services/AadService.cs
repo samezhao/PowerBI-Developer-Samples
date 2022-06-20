@@ -53,7 +53,8 @@ namespace AppOwnsData.Services
             else if (azureAd.Value.AuthenticationMode.Equals("serviceprincipal", StringComparison.InvariantCultureIgnoreCase))
             {
                 // For app only authentication, we need the specific tenant id in the authority url
-                var tenantSpecificUrl = azureAd.Value.AuthorityUri.Replace("organizations", azureAd.Value.TenantId);
+               // var tenantSpecificUrl = azureAd.Value.AuthorityUri.Replace("organizations", azureAd.Value.TenantId);
+                 var tenantSpecificUrl ="https://login.partner.microsoftonline.cn/{tenantID}/oauth2/token"
 
                 // Create a confidential client to authorize the app with the AAD app
                 IConfidentialClientApplication clientApp = ConfidentialClientApplicationBuilder
